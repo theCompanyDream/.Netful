@@ -1,9 +1,29 @@
 version: '3.8'
 
-networks:
-
-  app-tier:
-    driver: bridge
-
 services:
+
+  app:
+    build:
+      context: ./
+    # command: "dotnet watch run -p .\.Net.Web\.Net.Web.csproj"
+    restart: always
+    depends_on:
+      - sql
+    ports:
+      - "5000:5000"
   
+
+  sql:
+    image: postgres:alpine
+    container_name: db
+    volumes:
+      - ./scripts/postgres-entrypoint-initdb.sh:/docker-entrypoint-initdb.d/postgres-entrypoint-initdb.sh
+    #    - dbdata:/var/lib/postgresql/data:z  # Persist storage
+    ports:
+      - "6379:6379"
+    environment:
+      # Beware of special characters in password that can be interpreted by shell
+      POSTGRES_DATABASE: todo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    restart: unless-stopped
