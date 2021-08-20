@@ -10,7 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
-using .Net.Data;
+using _Net.Data;
 
 namespace _Net.Web
 {
@@ -29,7 +29,7 @@ namespace _Net.Web
             services.AddControllersWithViews();
             services.AddSwaggerGen(c => {
                 c.SwaggerDoc("v1", new OpenApiInfo{});
-            })
+            });
 
             services.AddDistributedMemoryCache();
             services.AddTodoDb();
@@ -42,7 +42,7 @@ namespace _Net.Web
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Service.API v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Todo Api v1"));
             }
             else
             {
@@ -52,7 +52,6 @@ namespace _Net.Web
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseRateLimiting();
             app.UseRouting();
 
             app.UseAuthorization();

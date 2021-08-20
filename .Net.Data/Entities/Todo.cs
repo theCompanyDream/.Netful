@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace _Net.Data.Entities
 {
-	public class TODO {
+	public class Todo {
 		
-		public TODO () {
-			Id = Guid.NewGuid()
+		public Todo () {
+			Id = Guid.NewGuid();
 		}
 
 		public Guid Id { get; }
