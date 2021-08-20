@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+
+using .Net.Data;
 
 namespace _Net.Web
 {
@@ -24,7 +27,12 @@ namespace _Net.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddSwaggerGen(c => {
+                c.SwaggerDoc("v1", new OpenApiInfo{});
+            })
 
+            services.AddDistributedMemoryCache();
+            services.AddTodoDb();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -33,6 +41,8 @@ namespace _Net.Web
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseSwagger();
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Service.API v1"));
             }
             else
             {
@@ -42,7 +52,7 @@ namespace _Net.Web
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-
+            app.UseRateLimiting();
             app.UseRouting();
 
             app.UseAuthorization();
