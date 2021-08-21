@@ -1,4 +1,5 @@
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS base
+ENV ASPNETCORE_URLS http://+:80
 
 WORKDIR /app
 
@@ -15,5 +16,7 @@ FROM base AS final
 WORKDIR /app
 
 COPY --from=build /app/publish .
+
+EXPOSE 80/tcp
 
 ENTRYPOINT ["dotnet", ".Net.Web.dll"]
