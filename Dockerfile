@@ -17,6 +17,6 @@ WORKDIR /app
 
 COPY --from=build /app/publish .
 
-EXPOSE 80/tcp
+EXPOSE 80/tcp 5000 5001
 
-ENTRYPOINT ["dotnet", ".Net.Web.dll"]
+ENTRYPOINT ["./scripts/run.sh"]

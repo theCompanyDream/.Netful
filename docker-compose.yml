@@ -1,22 +1,31 @@
 version: '3.8'
 
+volumes:
+  content:
+    driver: local
+    driver_opts: 
+      o: bind
+      type: none
+      device: "./"
+
 services:
 
   app:
     build:
       context: ./
-    # command: "dotnet watch run -p .\.Net.Web\.Net.Web.csproj"
     restart: always
+    volumes:
+      - "content:/app"
     depends_on:
       - sql
     ports:
-      - "5000:80"
+      - "5000:5000"
+      - "5001:5001"
 
   sql:
     image: postgres:alpine
     container_name: db
-    volumes:
-      - ./scripts/postgres-entrypoint-initdb.sh:/docker-entrypoint-initdb.d/postgres-entrypoint-initdb.sh
+    # volumes:
     #    - dbdata:/var/lib/postgresql/data:z  # Persist storage
     ports:
       - "6379:6379"
