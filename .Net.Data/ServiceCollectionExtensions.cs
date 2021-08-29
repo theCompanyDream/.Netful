@@ -6,7 +6,6 @@ using Microsoft.Extensions.DependencyInjection;
 using _Net.Data.Context;
 using System;
 
-
 namespace _Net.Data
 {
     public static class ServiceCollectionExtensions
