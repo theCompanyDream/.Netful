@@ -27,7 +27,7 @@ namespace  _Net.Web.Controllers
 
 		[HttpPost]
 		public async Task<IActionResult> Post([FromBody]TodoApiModel model) {
-
+			
 		}
 
 		[HttpPut("{id}")]

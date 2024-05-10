@@ -15,6 +15,6 @@ namespace _Net.Data.Context {
 				.Entity<Todo>()
 				.HasKey(o => o.Id);
 		}
-		
+
 	}
-}
+}q
