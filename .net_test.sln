@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = ".Net.Data", ".Net.Data\.Net.Data.csproj", "{759EE973-E58F-4669-B032-F7C8EC1BA7F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = ".Net.Data", "api\.Net.Data\.Net.Data.csproj", "{759EE973-E58F-4669-B032-F7C8EC1BA7F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = ".Net.Web", ".Net.Web\.Net.Web.csproj", "{A1B8BA5F-2B9C-483E-AD35-6EBF82EF2EAC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Netful.Api", "api\Netful.Api\Netful.Api.csproj", "{A1B8BA5F-2B9C-483E-AD35-6EBF82EF2EAC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = ".Net.Test", ".Net.Test\.Net.Test.csproj", "{5E0D197A-66A6-4DCE-B133-0AFC9D687A1F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Netful.Test", "api\Netful.Test\Netful.Test.csproj", "{5E0D197A-66A6-4DCE-B133-0AFC9D687A1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
