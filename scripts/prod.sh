@@ -1,3 +1,3 @@
 #!/bin/bash
 
-dotnet .Net.Web.dll
+dotnet Netful.Api.dll

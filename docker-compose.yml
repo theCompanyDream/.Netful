@@ -3,7 +3,7 @@ version: '3.8'
 volumes:
   content:
     driver: local
-    driver_opts: 
+    driver_opts:
       o: bind
       type: none
       device: "./"
@@ -31,7 +31,7 @@ services:
       - "6379:6379"
     environment:
       # Beware of special characters in password that can be interpreted by shell
-      POSTGRES_DATABASE: todo
+      POSTGRES_DATABASE: netful
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
     restart: unless-stopped
